@@ -1,6 +1,12 @@
 import React from "react";
-import { ICard } from "../../utils/type";
 import { Box, Heading, VStack, Text } from "@chakra-ui/react";
+
+interface ICard {
+  category: string;
+  title: string;
+  date: any;
+  excerpt: string;
+}
 
 export default function Card({
   category,

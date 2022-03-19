@@ -1,5 +1,4 @@
 import { useState, useEffect, useLayoutEffect, useRef } from "react";
-import { IPost } from "../../utils/type";
 
 type Props = {
   posts: IPost[];
@@ -7,6 +6,20 @@ type Props = {
   maxPostNum: number;
   offsetY: number;
 };
+
+interface IPost {
+  id: any;
+  excerpt: string;
+  slug: string;
+  title: string;
+  date: any;
+  category: ICategory;
+}
+
+interface ICategory {
+  fieldValue: string;
+  totalCount: number;
+}
 
 const useInfiniteScroll = ({
   posts,

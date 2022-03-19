@@ -1,10 +1,10 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Index from "..";
-import NotFound from "../404";
-import About from "../apps";
-import Apps from "../apps";
-import Libs from "../libs";
+import Index from "../pages";
+import NotFound from "../pages/404";
+import About from "../pages/apps";
+import Apps from "../pages/apps";
+import Libs from "../pages/libs";
 
 test("render", async () => {
   render(<NotFound />);

@@ -1,13 +1,26 @@
 import React, { useRef } from "react";
-import { Link } from "gatsby";
+import Link from "next/link";
 import Card from "./card";
 import useInfiniteScroll from "./useInfiniteScroll";
-import { IPost } from "../../utils/type";
 import { SimpleGrid } from "@chakra-ui/react";
 
 type Props = {
   posts: IPost[];
 };
+
+interface IPost {
+  id: any;
+  excerpt: string;
+  slug: string;
+  title: string;
+  date: any;
+  category: ICategory;
+}
+
+interface ICategory {
+  fieldValue: string;
+  totalCount: number;
+}
 
 export default function PostGrid({ posts }: Props): JSX.Element {
   const scrollEdgeRef = useRef(null);
@@ -24,7 +37,7 @@ export default function PostGrid({ posts }: Props): JSX.Element {
         const { id, excerpt, slug, title, date, category } = data;
         const ariaLabel = `${title} - ${category} - Posted on ${date}`;
         return (
-          <Link to={slug} aria-label={ariaLabel} key={id}>
+          <Link href={slug} aria-label={ariaLabel} key={id} passHref>
             <Card
               category={category.fieldValue}
               title={title}
