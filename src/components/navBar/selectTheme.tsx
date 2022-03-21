@@ -1,7 +1,6 @@
 import { ChevronDownIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Button,
-  createIcon,
   IconButton,
   Menu,
   MenuButton,

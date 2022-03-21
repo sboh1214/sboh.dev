@@ -55,7 +55,7 @@ export default function SelectTranslation({ isLarge }: Props): JSX.Element {
       )}
       <MenuList>
         <MenuOptionGroup
-          defaultValue={router.locale}
+          defaultValue={router.locale ?? "ko"}
           title={t("toolBar.languages")}
           type="radio"
         >

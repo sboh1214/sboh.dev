@@ -6,22 +6,22 @@ import About from "../pages/apps";
 import Apps from "../pages/apps";
 import Libs from "../pages/libs";
 
-test("render", async () => {
+test("render NotFound", async () => {
   render(<NotFound />);
 });
 
-test("render", async () => {
+test("render About", async () => {
   render(<About />);
 });
 
-test("render", async () => {
+test("render Apps", async () => {
   render(<Apps />);
 });
 
-test("render", async () => {
+test("render Index", async () => {
   render(<Index />);
 });
 
-test("render", async () => {
+test("render Libs", async () => {
   render(<Libs />);
 });
