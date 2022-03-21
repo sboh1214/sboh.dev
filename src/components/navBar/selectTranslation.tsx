@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 enum Language {
   KO = "ko",
@@ -35,13 +37,8 @@ const TranslateIcon = createIcon({
 });
 
 export default function SelectTranslation({ isLarge }: Props): JSX.Element {
-  const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState<Language>(Language.KO);
-
-  function handleChange(value: string) {
-    i18n.changeLanguage(value);
-    setLanguage(value as Language);
-  }
+  const { t } = useTranslation();
+  const router = useRouter();
 
   return (
     <Menu>
@@ -51,26 +48,28 @@ export default function SelectTranslation({ isLarge }: Props): JSX.Element {
           leftIcon={<TranslateIcon />}
           rightIcon={<ChevronDownIcon />}
         >
-          {LanguageNames[language]}
+          {router.locale === "en" ? "English" : "한국어"}
         </MenuButton>
       ) : (
         <MenuButton as={IconButton} icon={<TranslateIcon />} />
       )}
       <MenuList>
         <MenuOptionGroup
-          defaultValue={language}
-          onChange={(value) => {
-            handleChange(value as string);
-          }}
+          defaultValue={router.locale}
           title={t("toolBar.languages")}
           type="radio"
         >
-          <MenuItemOption value={Language.KO}>
-            {LanguageNames[Language.KO]}
-          </MenuItemOption>
-          <MenuItemOption value={Language.EN}>
-            {LanguageNames[Language.EN]}
-          </MenuItemOption>
+          <Link href={router.pathname} locale="ko" passHref>
+            <MenuItemOption value={Language.KO}>
+              {LanguageNames[Language.KO]}
+            </MenuItemOption>
+          </Link>
+
+          <Link href={router.pathname} locale="en" passHref>
+            <MenuItemOption value={Language.EN}>
+              {LanguageNames[Language.EN]}
+            </MenuItemOption>
+          </Link>
         </MenuOptionGroup>
       </MenuList>
     </Menu>
