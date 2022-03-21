@@ -11,6 +11,8 @@ export default function Index(): JSX.Element {
         <Heading>Hello</Heading>
         <Divider />
         <Text>I&apos;m Seungbin Oh</Text>
+        <Text>2019 Null 회장</Text>
+        <Text>2022 SPARCS 회장</Text>
       </VStack>
     </Layout>
   );
