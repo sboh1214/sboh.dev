@@ -60,7 +60,7 @@ export default function SelectTheme({ isLarge }: Props): JSX.Element {
           leftIcon={themeIcon}
           rightIcon={<ChevronDownIcon />}
         >
-          {theme}
+          {t("toolBar.theme")}
         </MenuButton>
       ) : (
         <MenuButton as={IconButton} icon={themeIcon} />
@@ -71,7 +71,7 @@ export default function SelectTheme({ isLarge }: Props): JSX.Element {
           onChange={(value) => {
             handleChange(value as string);
           }}
-          title={t("toolBar.themes")}
+          title={t("toolBar.theme")}
           type="radio"
         >
           <MenuItemOption value={Theme.SYNC}>시스템과 동일</MenuItemOption>

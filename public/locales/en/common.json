@@ -10,8 +10,10 @@
   },
   "toolBar": {
     "languages": "Languages",
-    "light": "Light Theme",
-    "dark": "Dark Theme"
+    "theme": "Theme",
+    "sync": "Sync",
+    "light": "Light",
+    "dark": "Dark"
   },
   "category": {
     "name": "Category",
